@@ -1,0 +1,14 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        count = {}
+        for num in nums:
+            count[num] = 1 + count.get(num, 0)
+        majKey = 0
+        majCount = 0
+
+        for key, val in count.items():
+            if val > majCount:
+                majKey = key
+                majCount = val
+
+        return majKey
